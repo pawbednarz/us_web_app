@@ -27,12 +27,14 @@ if (isset($messages)) {
     }
 }
 ?>
-
+<?php 
+echo $odsetki;
+?>
 <?php
-if (isset($result)) {
+if (isset($rate)) {
     echo <<<EOS
-    <div style="margin: 20px; padding: 10px; border-radius: 5px; background-color: #ff0; width:300px;">;
-        Miesięczna rata: $result
+    <div style="margin: 20px; padding: 10px; border-radius: 5px; background-color: #ff0; width:300px;">
+        Miesięczna rata: $rate
     </div>
     EOS;
 }
