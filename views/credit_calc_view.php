@@ -1,4 +1,3 @@
-<?php require_once dirname(__FILE__) .'/../config.php';?>
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
@@ -7,7 +6,7 @@
 </head>
 <body>
 
-<form action="<?php print(_APP_URL);?>/controllers/credit_calc.php" method="post">
+<form action="<?php  echo _CONTROLLERS_URL.'credit_calc.php';?>" method="post">
 	<label for="amount">Kwota: </label>
 	<input id="amount" type="number" name="amount"/><br />
 	<label for="years">Lata: </label>
