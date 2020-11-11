@@ -26,8 +26,7 @@ if (empty($messages)) {
 
 // if there are still no errors - calculate loan rate
 $rate = $amount / ($years * 12);
-$percentage /= 100;
-$interest = $rate * $percentage;
+$interest = $rate * $percentage / 100;
 $rate += $interest;
 
 // render view (initialized variable will be automatically passed into view)
