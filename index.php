@@ -1,5 +1,6 @@
-<?php 
-    echo "<h1>Test</h1>";
-    echo "<h1>Test 2</h1>";
-    echo "<h2>Test 3 </h2>"
+<?php
+// load config.php file
+require_once dirname(__FILE__)."/config.php";
+// render credit_calc_view.php file
+include _ROOT_PATH."/views/credit_calc_view.php";
 ?>
