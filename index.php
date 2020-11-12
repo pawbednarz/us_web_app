@@ -2,5 +2,5 @@
 // load config.php file
 require_once dirname(__FILE__)."/config.php";
 // render credit_calc_view.php file
-include _VIEWS_DIR.'credit_calc_view.php';
+include _CONTROLLERS_DIR.'credit_calc.php';
 ?>

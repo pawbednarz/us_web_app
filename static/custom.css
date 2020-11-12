@@ -1,0 +1,22 @@
+ .calc_form {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.calc_form fieldset {
+    text-align: center;
+}
+
+.calc_form fieldset label {
+    text-align: left;
+} 
+
+ul {
+    margin: 0;
+}
+
+.alert {
+    border-radius: 5px !important; 
+    margin-top: 1em;
+    color: #000 !important;
+}
