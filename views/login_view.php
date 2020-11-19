@@ -10,9 +10,9 @@
 </head>
 <body>
 <div class="row">
-    <div class="col m2-5 d2-5"></div>
-    <div class="col m1-5 d1-5">
-    <form class="calc_form off-6" action="<?php  echo _CONTROLLERS_URL.'security/login.php';?>" method="post">
+    <div class="col s0-5 m3 d4"></div>
+    <div class="col s12 m6 d4">
+    <form class="calc_form" action="<?php  echo _CONTROLLERS_URL.'security/login.php';?>" method="post">
         <fieldset>
             <legend>Zaloguj się</legend>
             <div class="col m12">
@@ -39,7 +39,7 @@ if (isset($messages)) {
 }
 ?>
     </div>
-    <div class="col m2-5 d2-5"></div>
+    <div class="col s0-5 m3 d4"></div>
 </div>
 </body>
 </html>
