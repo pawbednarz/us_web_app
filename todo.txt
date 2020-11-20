@@ -1,1 +1,2 @@
 TODO - fix navbar to be responsive
+TODO - think about using pureCSS to responsive grids
