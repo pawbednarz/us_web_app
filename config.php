@@ -8,4 +8,6 @@ define("_VIEWS_URL", _ROOT_PATH.'/views/');
 define("_CONTROLLERS_URL", _APP_URL.'/controllers/');
 define("_CONTROLLERS_DIR", _ROOT_PATH.'/controllers/');
 define("_STATIC_URL", _APP_URL.'/static/');
+define("_TPL_URL", _APP_URL.'/templates/');
+define("_TPL_DIR", _ROOT_PATH.'/templates/');
 ?>
