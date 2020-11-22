@@ -2,6 +2,7 @@
 // load config
 require_once dirname(__FILE__).'/../config.php';
 include _CONTROLLERS_DIR.'security/access_control.php';
+require_once _ROOT_PATH.'/lib/smarty/Smarty.class.php';
 
 // parameter validation
 function validate_params($amount, $years, $percentage, &$messages) {
@@ -26,10 +27,11 @@ function validate_params($amount, $years, $percentage, &$messages) {
 }
 
 // if there are still no errors - calculate loan rate
-function get_rate_value($amount, $years, $percentage, &$rate, &$messages){
+function get_rate_value($amount, $years, $percentage, &$messages){
     $rate = $amount / ($years * 12);
     $interest = $rate * $percentage / 100;
     $rate += $interest;
+    return $rate;
 }
 
 // init needed variables
@@ -42,9 +44,15 @@ $rate = null;
 // if data is properly formatted
 if (validate_params($amount, $years, $percentage, $messages)) {
     // do the calculations
-    get_rate_value($amount, $years, $percentage, $rate, $messages);
+    $rate = get_rate_value($amount, $years, $percentage, $rate, $messages);
 }
 
 // render view (initialized variable will be automatically passed into view)
-include _VIEWS_URL.'credit_calc_view.php';
+
+$smarty = new Smarty();
+$smarty -> assign("controllers_url", _CONTROLLERS_URL);
+$smarty -> assign("static_url", _STATIC_URL);
+$smarty -> assign("rate", $rate);
+$smarty -> assign("messages", $messages);
+$smarty -> display(_TPL_DIR."credit_calc.tpl");
 ?>
