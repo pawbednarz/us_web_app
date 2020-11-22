@@ -1,4 +1,3 @@
-<?php include _CONTROLLERS_URL.'security/access_control.php'; ?>
 <!DOCTYPE HTML>
 <!--
 	Forty by HTML5 UP

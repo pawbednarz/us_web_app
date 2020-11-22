@@ -1,11 +1,11 @@
 <?php
-require_once dirname(__FILE__).'/../config.php';
-include _CONTROLLERS_DIR.'security/access_control.php';
-require_once _ROOT_PATH.'/lib/smarty/Smarty.class.php';
+require_once dirname(__FILE__)."/../config.php";
+include $conf->controllers_dir.'security/access_control.php';
+require_once $conf->root_path.'/lib/smarty/Smarty.class.php';
 
 $smarty = new Smarty();
-$smarty -> assign("controllers_url", _CONTROLLERS_URL);
-$smarty -> assign("static_url", _STATIC_URL);
+$smarty -> assign("controllers_url", $conf->controllers_url);
+$smarty -> assign("static_url", $conf->static_url);
 $smarty -> assign("username", $_SESSION["username"]);
-$smarty -> display(_TPL_DIR."restricted.tpl");
+$smarty -> display($conf->tpl_dir."restricted.tpl");
 ?>

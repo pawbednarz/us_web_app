@@ -1,7 +1,7 @@
 <?php
 // load config
-require_once dirname(__FILE__).'/../../config.php';
-require_once _ROOT_PATH.'/lib/smarty/Smarty.class.php';
+require_once dirname(__FILE__)."/../../config.php";
+require_once $conf->root_path.'/lib/smarty/Smarty.class.php';
 
 $login = $_REQUEST['login'];
 $password = $_REQUEST['password'];
@@ -42,12 +42,12 @@ function validate_login($login, $password, &$messages) {
 $messages = array();
 
 if (validate_login($login, $password, $messages)) {
-    header("Location: "._APP_ROOT);
+    header("Location: ".$conf->app_root);
 } else {
     $smarty = new Smarty();
-    $smarty -> assign("controllers_url", _CONTROLLERS_URL);
-    $smarty -> assign("static_url", _STATIC_URL);
+    $smarty -> assign("controllers_url", $conf->controllers_url);
+    $smarty -> assign("static_url", $conf->static_url);
     $smarty -> assign("messages", $messages);
-    $smarty -> display(_TPL_DIR."login.tpl");
+    $smarty -> display($conf->tpl_dir."login.tpl");
 }
 ?>
