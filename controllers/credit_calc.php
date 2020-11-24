@@ -1,7 +1,6 @@
 <?php
 // load config
 require_once dirname(__FILE__)."/../config.php";
-include $conf->controllers_dir.'security/access_control.php';
 require_once $conf->root_path.'/lib/smarty/Smarty.class.php';
 
 // parameter validation

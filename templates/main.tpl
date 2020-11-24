@@ -29,10 +29,6 @@
 <nav id="menu">
 	<ul class="links">
 		<li><a href="{$controllers_url}credit_calc.php">Kalkulator</a></li>
-		<li><a href="{$controllers_url}restricted.php">Zastrzeżona podstrona</a></li>
-	</ul>
-	<ul class="actions stacked">
-		<li><a href="{$controllers_url}security/logout.php" class="button fit">Wyloguj</a></li>
 	</ul>
 </nav>
 {/block}

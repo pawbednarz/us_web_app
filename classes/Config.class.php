@@ -1,7 +1,6 @@
 <?php
 
-class Config
-{
+class Config{
 
     public $server_name = "192.168.8.165";
     public $app_root = "/us_web_app";
