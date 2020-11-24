@@ -3,17 +3,16 @@
 class Messages
 {
     private $errors = array();
-    private $num = 0;
 
-    public function addError($error_message) {
+    public function add_error($error_message) {
         $this -> errors[] = $error_message;
     }
 
-    public function isEmpty() {
-        return $this -> num == 0;
+    public function is_empty() {
+        return count($this->errors) == 0;
     }
 
-    public function getErrors() {
+    public function get_errors() {
         return $this -> errors;
     }
 }
