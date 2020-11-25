@@ -17,15 +17,20 @@ class CalcController {
     }
 
     public function initialize() {
-        $this->get_params();
+        $params = $this->get_params();
+        $this->calc_data->amount = $params[0];
+        $this->calc_data->years = $params[1];
+        $this->calc_data->percentage = $params[2];
         $this->rate = $this->calculate_rate_value();
         $this->render_template();
     }
 
     private function get_params() {
-        $this->calc_data->amount = (isset($_POST["amount"])) ? $_POST["amount"] : null;
-        $this->calc_data->years = (isset($_POST["years"])) ? $_POST["years"] : null;;
-        $this->calc_data->percentage = (isset($_POST["percentage"])) ? $_POST["percentage"] : null;;
+        $arr = array();
+        $arr[] = (isset($_POST["amount"])) ? $_POST["amount"] : null;
+        $arr[] = (isset($_POST["years"])) ? $_POST["years"] : null;;
+        $arr[] = (isset($_POST["percentage"])) ? $_POST["percentage"] : null;;
+        return $arr;
     }
 
     // parameter validation
