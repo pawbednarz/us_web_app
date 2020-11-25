@@ -29,10 +29,10 @@
 			</ul>
 			<div class="col-6 col-12-medium messages">
 				
-				{if (isset($messages) && count($messages) > 0)}
+				{if (!$messages->is_empty())}
 					<h4>Bląd</h4>
 					<ul class="alt error">
-						{foreach $messages as $msg}
+						{foreach $messages->get_errors() as $msg}
 							<li>{$msg}</li>
 						{/foreach}
 					</ul>
