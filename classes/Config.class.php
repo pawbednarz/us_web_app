@@ -6,6 +6,15 @@ class Config{
     public $app_root = "/us_web_app";
     public $root_path = "/mnt/hdd/projects/us_web_app";
 
+    public $server_url;
+    public $app_url;
+    public $views_url;
+    public $controllers_url;
+    public $controllers_dir;
+    public $static_url;
+    public $tpl_url;
+    public $tpl_dir;
+
     public function __construct() {
         $this->server_url = "https://" . $this->server_name;
         $this->app_url = $this->server_url . $this->app_root;
