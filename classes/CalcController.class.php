@@ -16,7 +16,7 @@ class CalcController {
         $this->rate = null;
     }
 
-    public function initialize() {
+    public function calc_and_render_template() {
         $params = $this->get_params();
         $this->calc_data->amount = $params[0];
         $this->calc_data->years = $params[1];
@@ -63,11 +63,10 @@ class CalcController {
         return null;
     }
 
-    private function render_template() {
+    public function render_template() {
         global $conf;
         $smarty = new Smarty();
-        $smarty -> assign("controllers_url", $conf->controllers_url);
-        $smarty -> assign("static_url", $conf->static_url);
+        $smarty -> assign("conf", $conf);
         $smarty -> assign("rate", $this->rate);
         $smarty -> assign("messages", $this->messages);
         $smarty -> display($conf->tpl_dir."credit_calc.tpl");

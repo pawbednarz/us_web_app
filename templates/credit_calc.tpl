@@ -7,7 +7,7 @@
 	<div class="content">
 	    <div class="row">
 		    <ul class="actions col-6 col-12-medium">
-				<form method="post" action="{$controllers_url}credit_calc.php">
+				<form method="post" action="{$conf->app_url}?page=credit_calc">
 					<div class="fields">
 						<div class="field">
 							<label for="amount">Kwota: </label>
