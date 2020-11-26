@@ -9,8 +9,8 @@
 		<title>Kalkulator kredytowy</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{$static_url}css/main.css" />
-		<noscript><link rel="stylesheet" href="{$static_url}css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="{$conf->static_url}css/main.css" />
+		<noscript><link rel="stylesheet" href="{$conf->static_url}css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
 
@@ -20,7 +20,7 @@
 				<!-- Header -->
 				{block name=menu}
 <header id="header" class="alt">
-	<a href="<?php echo _APP_ROOT.'/index.php'?>" class="logo"><strong>Kalkulator kredytowy</strong></a>
+	<a href="{$conf->app_url}" class="logo"><strong>Kalkulator kredytowy</strong></a>
 	<nav>
 		<a href="#menu">Menu</a>
     </nav>
@@ -28,7 +28,7 @@
 
 <nav id="menu">
 	<ul class="links">
-		<li><a href="{$controllers_url}credit_calc.php">Kalkulator</a></li>
+		<li><a href="{$conf->controllers_url}credit_calc.php">Kalkulator</a></li>
 	</ul>
 </nav>
 {/block}
@@ -56,13 +56,13 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="{$static_url}js/jquery.min.js"></script>
-			<script src="{$static_url}js/jquery.scrolly.min.js"></script>
-			<script src="{$static_url}js/jquery.scrollex.min.js"></script>
-			<script src="{$static_url}js/browser.min.js"></script>
-			<script src="{$static_url}js/breakpoints.min.js"></script>
-			<script src="{$static_url}js/util.js"></script>
-			<script src="{$static_url}js/main.js"></script>
+			<script src="{$conf->static_url}js/jquery.min.js"></script>
+			<script src="{$conf->static_url}js/jquery.scrolly.min.js"></script>
+			<script src="{$conf->static_url}js/jquery.scrollex.min.js"></script>
+			<script src="{$conf->static_url}js/browser.min.js"></script>
+			<script src="{$conf->static_url}js/breakpoints.min.js"></script>
+			<script src="{$conf->static_url}js/util.js"></script>
+			<script src="{$conf->static_url}js/main.js"></script>
 
 	</body>
 </html>
