@@ -12,11 +12,13 @@ class Config{
     public $static_url;
     public $tpl_dir;
     public $classes_dir;
+    public $controllers_dir;
 
     public function __construct() {
         $this->server_url = "https://" . $this->server_name;
         $this->app_url = $this->server_url . $this->app_root;
         $this->controllers_url = $this->app_url . "/controllers/";
+        $this->controllers_dir = $this->root_path . "/controllers/";
         $this->classes_dir = $this->root_path . "/classes/";
         $this->static_url = $this->app_url . "/static/";
         $this->tpl_dir = $this->root_path . "/templates/";
