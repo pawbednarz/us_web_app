@@ -3,7 +3,7 @@
 class Config{
 
     public $server_name = "192.168.0.108";
-    public $app_root = "/us_web_app";
+    public $app_root = "/us_web_app/";
     public $root_path = "/mnt/hdd/projects/us_web_app";
 
     public $server_url;
@@ -17,10 +17,10 @@ class Config{
     public function __construct() {
         $this->server_url = "http://" . $this->server_name;
         $this->app_url = $this->server_url . $this->app_root;
-        $this->controllers_url = $this->app_url . "/controllers/";
+        $this->controllers_url = $this->app_url . "controllers/";
         $this->controllers_dir = $this->root_path . "/controllers/";
         $this->classes_dir = $this->root_path . "/classes/";
-        $this->static_url = $this->app_url . "/static/";
+        $this->static_url = $this->app_url . "static/";
         $this->tpl_dir = $this->root_path . "/templates/";
     }
 }
