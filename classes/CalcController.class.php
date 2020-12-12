@@ -1,17 +1,13 @@
 <?php
 
-require_once dirname(__FILE__)."/CalcRequestData.class.php";
-require_once $conf->root_path."/lib/Messages.class.php";
-require_once $conf->root_path.'/lib/smarty/Smarty.class.php';
+require_once getConfig()->classes_dir."/CalcRequestData.class.php";
 
 class CalcController {
 
-    private $messages;
     private $calc_data;
     private $rate;
 
     public function __construct() {
-        $this->messages = new Messages();
         $this->calc_data = new CalcRequestData();
         $this->rate = null;
     }
@@ -28,8 +24,8 @@ class CalcController {
     private function get_params() {
         $arr = array();
         $arr[] = (isset($_POST["amount"])) ? $_POST["amount"] : null;
-        $arr[] = (isset($_POST["years"])) ? $_POST["years"] : null;;
-        $arr[] = (isset($_POST["percentage"])) ? $_POST["percentage"] : null;;
+        $arr[] = (isset($_POST["years"])) ? $_POST["years"] : null;
+        $arr[] = (isset($_POST["percentage"])) ? $_POST["percentage"] : null;
         return $arr;
     }
 
@@ -39,18 +35,18 @@ class CalcController {
             return false;
         }
 
-        if ($this->calc_data->amount == "") $this->messages->add_error("Nie podano kwoty");
-        if ($this->calc_data->years == "") $this->messages->add_error("Nie podano liczby lat");
-        if ($this->calc_data->percentage == "") $this->messages->add_error("Nie podano oprocentowania");
+        if ($this->calc_data->amount == "") getMessages()->add_error("Nie podano kwoty");
+        if ($this->calc_data->years == "") getMessages()->add_error("Nie podano liczby lat");
+        if ($this->calc_data->percentage == "") getMessages()->add_error("Nie podano oprocentowania");
 
         // if there are no errors apply more validation rules, if not - skip
-        if ($this->messages->is_empty()) {
-            if (!is_numeric($this->calc_data->amount)) $this->messages->add_error("Kwota nie jest liczbą całkowitą");
-            if (!is_numeric($this->calc_data->years)) $this->messages->add_error("Liczba  lat nie jest liczbą całkowitą");
+        if (getMessages()->is_empty()) {
+            if (!is_numeric($this->calc_data->amount)) getMessages()->add_error("Kwota nie jest liczbą całkowitą");
+            if (!is_numeric($this->calc_data->years)) getMessages()->add_error("Liczba  lat nie jest liczbą całkowitą");
             // TODO - percentage should be float
-            if (!is_numeric($this->calc_data->percentage)) $this->messages->add_error("Oprocentowanie nie jest liczbą całkowitą");
+            if (!is_numeric($this->calc_data->percentage)) getMessages()->add_error("Oprocentowanie nie jest liczbą całkowitą");
         }
-        return $this->messages->is_empty();
+        return getMessages()->is_empty();
     }
 
     private function calculate_rate_value(){
@@ -64,11 +60,7 @@ class CalcController {
     }
 
     public function render_template() {
-        global $conf;
-        $smarty = new Smarty();
-        $smarty -> assign("conf", $conf);
-        $smarty -> assign("rate", $this->rate);
-        $smarty -> assign("messages", $this->messages);
-        $smarty -> display($conf->tpl_dir."credit_calc.tpl");
+        getSmarty() -> assign('rate', $this->rate);
+        getSmarty() -> display("credit_calc.tpl");
     }
 }
