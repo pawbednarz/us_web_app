@@ -1,6 +1,8 @@
 <?php
 
-require_once getConfig()->classes_dir."/CalcRequestData.class.php";
+namespace app\classes;
+
+use app\classes\CalcRequestData;
 
 class CalcController {
 

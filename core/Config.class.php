@@ -1,5 +1,7 @@
 <?php
 
+namespace core;
+
 class Config{
 
     public $server_name = "192.168.0.108";
@@ -17,10 +19,10 @@ class Config{
     public function __construct() {
         $this->server_url = "http://" . $this->server_name;
         $this->app_url = $this->server_url . $this->app_root;
-        $this->controllers_url = $this->app_url . "controllers/";
-        $this->controllers_dir = $this->root_path . "/controllers/";
-        $this->classes_dir = $this->root_path . "/classes/";
+        $this->controllers_url = $this->app_url . "app/controllers/";
+        $this->controllers_dir = $this->root_path . "/app/controllers/";
+        $this->classes_dir = $this->root_path . "/app/classes/";
         $this->static_url = $this->app_url . "static/";
-        $this->tpl_dir = $this->root_path . "/templates/";
+        $this->tpl_dir = $this->root_path . "/app/templates/";
     }
 }

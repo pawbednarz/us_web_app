@@ -1,5 +1,7 @@
 <?php
 
+namespace core;
+
 class Messages
 {
     private $errors = array();

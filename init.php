@@ -1,6 +1,6 @@
 <?php
 require_once "core/Config.class.php";
-$conf = new Config();
+$conf = new core\Config();
 
 function &getConfig() {
     global $conf;
@@ -8,7 +8,7 @@ function &getConfig() {
 }
 
 require_once 'core/Messages.class.php';
-$messages = new Messages();
+$messages = new core\Messages();
 
 function &getMessages() {
     global $messages;
@@ -28,8 +28,15 @@ function &getSmarty() {
 
         // define template locatization
         $smarty->setTemplateDir(array(
-            'one' => getConfig()->root_path.'/templates'
+            'one' => getConfig()->tpl_dir
         ));
     }
     return $smarty;
+}
+
+require_once 'core/ClassLoader.class.php';
+$loader = new core\ClassLoader();
+function &getLoader() {
+    global $loader;
+    return $loader;
 }
