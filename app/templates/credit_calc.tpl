@@ -29,14 +29,7 @@
 			</ul>
 			<div class="col-6 col-12-medium messages">
 
-				{if (!$messages->is_empty())}
-					<h4>Bląd</h4>
-					<ul class="alt error">
-						{foreach $messages->get_errors() as $msg}
-							<li>{$msg}</li>
-						{/foreach}
-					</ul>
-				{/if}
+				{include file="error.tpl"}
 				{if (isset($rate) && !is_nan($rate))}
 					<h4>Wynik:</h4>
 					<ul class="alt success">

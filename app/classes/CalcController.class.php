@@ -42,13 +42,13 @@ class CalcController {
         if ($this->calc_data->percentage == "") getMessages()->add_error("Nie podano oprocentowania");
 
         // if there are no errors apply more validation rules, if not - skip
-        if (getMessages()->is_empty()) {
+        if (getMessages()->is_error_empty()) {
             if (!is_numeric($this->calc_data->amount)) getMessages()->add_error("Kwota nie jest liczbą całkowitą");
             if (!is_numeric($this->calc_data->years)) getMessages()->add_error("Liczba  lat nie jest liczbą całkowitą");
             // TODO - percentage should be float
             if (!is_numeric($this->calc_data->percentage)) getMessages()->add_error("Oprocentowanie nie jest liczbą całkowitą");
         }
-        return getMessages()->is_empty();
+        return getMessages()->is_error_empty();
     }
 
     private function calculate_rate_value(){

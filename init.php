@@ -28,7 +28,8 @@ function &getSmarty() {
 
         // define template locatization
         $smarty->setTemplateDir(array(
-            'one' => getConfig()->tpl_dir
+            'one' => getConfig()->tpl_dir,
+            'two' => getConfig()->tpl_dir.'helpers'
         ));
     }
     return $smarty;
@@ -40,3 +41,5 @@ function &getLoader() {
     global $loader;
     return $loader;
 }
+require_once "core/functions.php";
+session_start();

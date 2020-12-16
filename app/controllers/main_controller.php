@@ -2,12 +2,16 @@
 
 $ctrl = (isset($_GET["page"])) ? $_GET["page"] : "";
 switch ($ctrl) {
-    case "credit_calc":
-        $calc_controller = new \app\classes\CalcController();
-        $calc_controller->calc_and_render_template();
-        break;
     default:
-        $calc_controller = new \app\classes\CalcController();
-        $calc_controller->render_template();
+        control("app\\classes", "CalcController", "calc_and_render_template", ["user", "administartor"]);
+        break;
+    case "login":
+        control(null, "LoginController", "login");
+        break;
+    case "credit_calc":
+        control(null, "CalcController", "calc_and_render_template", ["user", "administartor"]);
+        break;
+    case "logout":
+        control(null, "LoginController", "logout", ["user", "administartor"]);
         break;
 }
