@@ -25,6 +25,7 @@ function &getSmarty() {
         // assign config and messages to smarty object
         $smarty->assign('config', getConfig());
         $smarty->assign('messages', getMessages());
+        $smarty->assign("user_role", $_SESSION["role"]);
 
         // define template locatization
         $smarty->setTemplateDir(array(

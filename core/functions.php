@@ -1,6 +1,12 @@
 <?php
 
 function control($namespace, $controller, $method, $roles = null) {
+    if (isset($roles)) {
+        if (!in_array($_SESSION["role"], $roles)) {
+            header("Location: " . getConfig()->app_root . "?page=login");
+            exit;
+        }
+    }
     if (empty($namespace)) {
         $controller = "app\\classes\\".$controller;
     } else {

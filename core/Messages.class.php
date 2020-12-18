@@ -28,6 +28,6 @@ class Messages
     }
 
     public function get_info() {
-        return $this -> errors;
+        return $this -> info;
     }
 }

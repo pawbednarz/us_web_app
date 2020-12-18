@@ -36,7 +36,6 @@
 						<li>Miesięczna rata: {$rate}</li>
 					</ul>
 				{/if}
-
 			</div>
 		</div>
 	</div>

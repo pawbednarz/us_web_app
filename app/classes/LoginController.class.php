@@ -39,6 +39,10 @@ class LoginController {
                 $user = new User($login, $password, "administrator");
                 $_SESSION["username"] = $user->login;
                 $_SESSION["role"] = $user->role;
+            } else if ($login == "user" && $password == "user") {
+                $user = new User($login, $password, "user");
+                $_SESSION["username"] = $user->login;
+                $_SESSION["role"] = $user->role;
             } else {
                 getMessages()->add_error("Niepoprawny login lub hasło");
             }

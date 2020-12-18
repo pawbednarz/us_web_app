@@ -63,6 +63,8 @@ class CalcController {
 
     public function render_template() {
         getSmarty() -> assign('rate', $this->rate);
+        getSmarty() -> assign("username", $_SESSION["username"]);
+        getSmarty() -> assign("role", $_SESSION["role"]);
         getSmarty() -> display("credit_calc.tpl");
     }
 }

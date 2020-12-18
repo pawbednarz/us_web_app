@@ -38,6 +38,9 @@
 				<li>&copy; Paweł Bednarz</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 			</ul>
 		</div>
+		{if (isset($username) && isset($role))}
+			Zalogowano jako {$username} z rolą {$role}.
+		{/if}
 	</footer>
 </div>
 

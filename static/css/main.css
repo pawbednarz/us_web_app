@@ -3725,3 +3725,8 @@ body.is-menu-visible #menu .inner {
     background-color: rgb(36, 102, 34);
     border: none;
 }
+
+.messages .info li {
+    background-color: rgb(58, 140, 194);
+    border: none;
+}
