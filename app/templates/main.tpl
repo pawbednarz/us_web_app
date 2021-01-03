@@ -31,16 +31,18 @@
 	<footer id="footer">
 		<div class="inner">
 			<ul class="icons">
-				<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-				<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+				<li><a href="https://github.com/pawbednarz" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+				<li><a href="https://www.linkedin.com/in/p-bednarz/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 			</ul>
 			<ul class="copyright">
 				<li>&copy; Paweł Bednarz</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 			</ul>
+			<div class="right-inline">
+				{if (isset($username) && isset($role))}
+					Zalogowano jako {$username} z rolą {$role}.
+				{/if}
+			</div>
 		</div>
-		{if (isset($username) && isset($role))}
-			Zalogowano jako {$username} z rolą {$role}.
-		{/if}
 	</footer>
 </div>
 

@@ -3730,3 +3730,9 @@ body.is-menu-visible #menu .inner {
     background-color: rgb(58, 140, 194);
     border: none;
 }
+
+.right-inline {
+    float: right;
+    width: 65%;
+    text-align: right;
+}
