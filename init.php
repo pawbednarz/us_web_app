@@ -42,5 +42,15 @@ function &getLoader() {
     global $loader;
     return $loader;
 }
+
+require_once 'core/Route.class.php';
+$router = new \core\Router();
+function &getRouter() {
+    global $router;
+    return $router;
+}
+
 require_once "core/functions.php";
 session_start();
+
+$router->setAction($_GET["page"]);

@@ -1,23 +1,11 @@
 <?php
 
-$ctrl = (isset($_GET["page"])) ? $_GET["page"] : "";
-switch ($ctrl) {
-    default:
-        control("app\\classes", "CalcController", "calc_and_render_template", ["user", "administrator"]);
-        break;
-    case "login":
-        if (!isset($_SESSION["username"]) && !isset($_SESSION["role"])) {
-            control(null, "LoginController", "login");
-        }
-        header("Location: " . getConfig()->app_root . "?page=credit_calc");
-        break;
-    case "credit_calc":
-        control(null, "CalcController", "calc_and_render_template", ["user", "administrator"]);
-        break;
-    case "admin_only":
-        control(null, "AdminOnly", "renderTemplate", ["administrator"]);
-        break;
-    case "logout":
-        control(null, "LoginController", "logout", ["user", "administrator"]);
-        break;
-}
+getRouter()->setDefaultRoute("credit_calc");
+getRouter()->setLoginRoute("login");
+
+getRouter()->addRoute("login", null, "LoginController");
+getRouter()->addRoute("logout", null, "LoginController", ["user", "administrator"]);
+getRouter()->addRoute("credit_calc", null, "CalcController", ["user", "administrator"]);
+getRouter()->addRoute("renderTemplate", null, "AdminOnly", ["administrator"]);
+
+getRouter()->go();
