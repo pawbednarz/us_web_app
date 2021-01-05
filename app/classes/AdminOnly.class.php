@@ -4,7 +4,11 @@ namespace app\classes;
 
 class AdminOnly {
 
-    function renderTemplate() {
+    private function renderTemplate(){
         getSmarty() -> display("admin.tpl");
+    }
+
+    public function admin_only() {
+        $this->renderTemplate();
     }
 }

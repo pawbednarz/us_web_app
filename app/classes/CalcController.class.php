@@ -20,7 +20,18 @@ class CalcController {
         $this->calc_data->years = $params[1];
         $this->calc_data->percentage = $params[2];
         $this->rate = $this->calculate_rate_value();
+        $this->insertResultsIntoDb();
         $this->render_template();
+    }
+
+    private function insertResultsIntoDb() {
+        getDb()->insert("calc_history", [
+            "date"=>date("Y-m-d H:m:s"),
+            "amount"=>$this->calc_data->amount,
+            "years"=>$this->calc_data->years,
+            "percentage"=>$this->calc_data->percentage,
+            "result"=>$this->rate
+        ]);
     }
 
     private function get_params() {

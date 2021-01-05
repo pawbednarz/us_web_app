@@ -2,6 +2,10 @@
 require_once "core/Config.class.php";
 $conf = new core\Config();
 
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
+//error_reporting(E_ALL);
+
 function &getConfig() {
     global $conf;
     return $conf;
@@ -48,6 +52,25 @@ $router = new \core\Router();
 function &getRouter() {
     global $router;
     return $router;
+}
+
+require_once 'lib/medoo/Medoo.class.php';
+$db = null;
+function &getDb() {
+    global $conf, $db;
+    if (!isset($db)) {
+        $db = new \lib\medoo\Medoo([
+            'database_type' => $conf->db_type,
+            'server' => $conf->db_server,
+            'database_name' => $conf->db_name,
+            'username' => $conf->db_user,
+            'password' => $conf->db_pass,
+            'charset' => $conf->db_charset,
+            'port' => $conf->db_port,
+            'option' => $conf->db_option
+        ]);
+    }
+    return $db;
 }
 
 require_once "core/functions.php";
